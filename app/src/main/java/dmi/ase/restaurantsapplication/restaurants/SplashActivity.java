@@ -1,10 +1,13 @@
-package dmi.ase.restaurantsapplication;
+package dmi.ase.restaurantsapplication.restaurants;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import dmi.ase.restaurantsapplication.MainActivity;
+import dmi.ase.restaurantsapplication.R;
 
 public class SplashActivity extends AppCompatActivity {
     private Intent intent;

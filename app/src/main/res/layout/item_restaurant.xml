@@ -3,21 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:minHeight="@dimen/min_height_linear_layout">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/list_item_icon"
         android:layout_width="@dimen/list_item_icon_size"
         android:layout_height="@dimen/list_item_icon_size"
         android:padding="@dimen/padding_16"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/list_item_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars"
-        android:contentDescription="TODO" />
 
-    <TextView
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/list_item_title"
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="0dp"
@@ -31,11 +34,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/list_item_icon"
         app:layout_constraintTop_toTopOf="parent"
+
         tools:src="@tools:sample/lorem/random"
+
 
         />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/list_item_subtitle"
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_width="0dp"
@@ -48,8 +53,9 @@
         android:paddingBottom="@dimen/padding_16"
         android:text="@string/restaurant_subtitle"
         android:textSize="@dimen/subtitle_size"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/list_item_icon"
-        app:layout_constraintTop_toBottomOf="@id/list_item_title" />
+        app:layout_constraintTop_toBottomOf="@id/list_item_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

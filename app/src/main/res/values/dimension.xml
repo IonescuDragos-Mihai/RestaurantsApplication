@@ -11,5 +11,7 @@
     <dimen name="dimension_110dp">110dp</dimen>
     <dimen name="dimension_80dp">80dp</dimen>
     <dimen name="max_width_card_view">98dp</dimen>
+    <dimen name="dimendion_0.5dp">0.5dp</dimen>
+    <dimen name="dimension_0dp">0dp</dimen>
 
 </resources>

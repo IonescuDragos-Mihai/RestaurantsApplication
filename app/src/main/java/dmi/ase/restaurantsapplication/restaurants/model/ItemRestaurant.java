@@ -1,26 +1,26 @@
-package dmi.ase.restaurantsapplication.models;
+package dmi.ase.restaurantsapplication.restaurants.model;
 
 import android.widget.ImageView;
 
 import java.io.Serializable;
 
 public class ItemRestaurant implements Serializable {
-    private int icon;
+    private String iconURL;
     private String title;
     private String subtitle;
 
-    public ItemRestaurant(int icon, String title, String subtitle) {
-        this.icon = icon;
+    public ItemRestaurant(String iconURL, String title, String subtitle) {
+        this.iconURL = iconURL;
         this.title = title;
         this.subtitle = subtitle;
     }
 
-    public int getIcon() {
-        return icon;
+    public String getIconURL() {
+        return iconURL;
     }
 
-    public void setIcon(int icon) {
-        this.icon = icon;
+    public void setIconURL(String iconURL) {
+        this.iconURL = iconURL;
     }
 
     public String getTitle() {

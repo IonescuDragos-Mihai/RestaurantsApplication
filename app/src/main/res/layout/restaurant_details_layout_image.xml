@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:maxWidth="@dimen/max_width_card_view"
     android:maxHeight="@dimen/dimension_110dp"
-    android:paddingEnd="@dimen/padding_8">
+    android:paddingEnd="@dimen/padding_8"
+    android:paddingStart="@dimen/dimension_0dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/dimension_90dp"

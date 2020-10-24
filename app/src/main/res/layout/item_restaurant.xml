@@ -34,7 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/list_item_icon"
         app:layout_constraintTop_toTopOf="parent"
-
         tools:src="@tools:sample/lorem/random"
 
 
@@ -53,9 +52,8 @@
         android:paddingBottom="@dimen/padding_16"
         android:text="@string/restaurant_subtitle"
         android:textSize="@dimen/subtitle_size"
-        app:layout_constraintStart_toEndOf="@id/list_item_icon"
-        app:layout_constraintTop_toBottomOf="@id/list_item_title"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toEndOf="@id/list_item_icon"
+        app:layout_constraintTop_toBottomOf="@id/list_item_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

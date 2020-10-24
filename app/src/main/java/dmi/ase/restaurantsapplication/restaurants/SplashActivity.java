@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import dmi.ase.restaurantsapplication.MainActivity;
 import dmi.ase.restaurantsapplication.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -22,12 +21,9 @@ public class SplashActivity extends AppCompatActivity {
 
     private void goToMainActivity() {
         Handler h = new Handler();
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
+        h.postDelayed(() -> {
+            intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         }, 2000);
 
     }

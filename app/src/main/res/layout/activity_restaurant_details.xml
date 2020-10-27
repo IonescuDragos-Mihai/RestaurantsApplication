@@ -7,15 +7,27 @@
     android:scrollbars="vertical"
     tools:context=".restaurants.RestaurantDetailsActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_for_google_maps"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view_restaurant_details"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar_restaurant_detail"
         />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar_restaurant_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        app:title="@string/restaurant_title"
+       />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_for_google_maps">
+        app:layout_constraintTop_toBottomOf="@id/map_view_restaurant_details">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

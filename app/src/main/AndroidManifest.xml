@@ -18,7 +18,8 @@
         <activity
             android:name=".restaurants.RestaurantDetailsActivity"
             android:theme="@style/AppThemeNoActionBar"/>
-        <activity android:name=".restaurants.SplashActivity">
+        <activity android:name=".restaurants.SplashActivity"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

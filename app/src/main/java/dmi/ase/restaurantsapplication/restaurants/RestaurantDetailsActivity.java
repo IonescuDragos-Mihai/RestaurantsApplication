@@ -50,7 +50,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
     private ArrayList<RestaurantPhoto> photoOfRestaurants = new ArrayList<>();
 
 
-    private boolean isFavorite = true;
+    private boolean isFavorite ;
 
     private SharePrefUtil sharePrefUtil;
     private String favRestaurant;
@@ -92,7 +92,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
 
 
         sharePrefUtil = new SharePrefUtil(getApplicationContext());
-        favRestaurant = sharePrefUtil.getFavorite(restaurant.getName());
+        isFavorite=sharePrefUtil.getFavorite(restaurant.getName());
 
     }
 
@@ -135,15 +135,21 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_favorite, menu);
+    public boolean onPrepareOptionsMenu(Menu menu) {
 
-        if (favRestaurant.equals(restaurant.getName())) {
+        if (isFavorite) {
             menu.getItem(0).setIcon(R.drawable.ic_baseline_favorite_24);
+
         } else {
             menu.getItem(0).setIcon(R.drawable.ic_baseline_favorite_border_24);
         }
+        return true;
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_favorite, menu);
         return true;
     }
 
@@ -151,26 +157,25 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.add_to_fav:
-                if (isFavorite) {
-                    item.setIcon(R.drawable.ic_baseline_favorite_24);
-                    sharePrefUtil.putFavorite(restaurant.getName(), restaurant.getName());
-                    isFavorite = false;
+        if (item.getItemId() == R.id.add_to_fav) {
+            if (isFavorite) {
 
-                } else {
-                    item.setIcon(R.drawable.ic_baseline_favorite_border_24);
-                    isFavorite = true;
-                    sharePrefUtil.removeFavorite(restaurant.getName());
-
-                }
+                item.setIcon(R.drawable.ic_baseline_favorite_border_24);
+                isFavorite = false;
+                sharePrefUtil.removeFavorite(restaurant.getName());
 
 
-            default:
-                return super.onOptionsItemSelected(item);
+            } else {
+                item.setIcon(R.drawable.ic_baseline_favorite_24);
+                isFavorite = true;
+                sharePrefUtil.putFavorite(restaurant.getName(), isFavorite);
+
+            }
         }
+        return super.onOptionsItemSelected(item);
 
     }
+
 
 
 }

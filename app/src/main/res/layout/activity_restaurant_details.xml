@@ -14,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scroll_view_restaurant_details"
         app:layout_constraintTop_toBottomOf="@id/tool_bar_restaurant_detail"
         />
 
@@ -25,11 +26,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/blue_ibm"
         app:title="@string/restaurant_title"
+        style="@style/TextAppearance.AppCompat.Title"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/map_view_restaurant_details"
        />
 
     <ScrollView
+        android:id="@+id/scroll_view_restaurant_details"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"

@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class SharePrefUtil {
     private static final String NAME_FILE="Favorites";
-    private static final String defaultRestaurant="defaultRestaurant";
+    private static final boolean defaultValue=false;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -18,16 +18,17 @@ public class SharePrefUtil {
         this.sharedPreferences = context.getSharedPreferences(NAME_FILE, Activity.MODE_PRIVATE);
         this.editor =sharedPreferences.edit();
     }
-    public String getFavorite(String nameRestaurant){
-        return sharedPreferences.getString(nameRestaurant,defaultRestaurant);
+    public boolean getFavorite(String nameRestaurant){
+        return sharedPreferences.getBoolean(nameRestaurant,defaultValue);
 
     }
-    public  void  putFavorite(String key,String nameRestaurant){
-           editor.putString(key,nameRestaurant);
+    public  void  putFavorite(String keyNameRestaurant,boolean isFavorite){
+           editor.putBoolean(keyNameRestaurant,isFavorite);
            editor.apply();
     }
-    public void removeFavorite(String key){
-        editor.remove(key);
+    public void removeFavorite(String keyNameRestaurant){
+        editor.remove(keyNameRestaurant);
         editor.apply();
     }
+
 }

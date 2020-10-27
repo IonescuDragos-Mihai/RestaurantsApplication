@@ -1,6 +1,6 @@
 package dmi.ase.restaurantsapplication.restaurants;
 
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,15 +13,14 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+
 
 import dmi.ase.restaurantsapplication.R;
 import dmi.ase.restaurantsapplication.restaurants.model.ItemRestaurant;
 import dmi.ase.restaurantsapplication.restaurants.adapters.ItemRestaurantAdapter;
 import dmi.ase.restaurantsapplication.restaurants.server.model.RestaurantDetail;
 import dmi.ase.restaurantsapplication.restaurants.server.ServerProvider;
-import dmi.ase.restaurantsapplication.restaurants.utils.SharePrefUtil;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,14 +28,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     public static final String KEY_PARSE_RESTAURANT = "KEY";
-
-
-    private RecyclerView recyclerView;
+    private final ArrayList<ItemRestaurant> itemRestaurantList = new ArrayList<>();
     private Intent intent;
     private ItemRestaurantAdapter adapter;
     private ProgressBar progressBar;
-
-    private ArrayList<ItemRestaurant> itemRestaurantList = new ArrayList<>();
     private ArrayList<RestaurantDetail> restaurantDetails = new ArrayList<>();
 
 
@@ -53,14 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initComponents() {
-        recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
         progressBar = findViewById(R.id.progress_bar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setHasFixedSize(true);
         adapter = new ItemRestaurantAdapter(itemRestaurantList, getBaseContext());
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
-
 
     }
 
@@ -78,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     adapter.notifyDataSetChanged();
                     progressBar.setVisibility(View.GONE);
-
                 }
             }
 
@@ -93,9 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClickItemRestaurant() {
         adapter.setOnItemClickListener(position -> {
-
             intent = new Intent(getApplicationContext(), RestaurantDetailsActivity.class);
-
             intent.putExtra(KEY_PARSE_RESTAURANT, restaurantDetails.get(position));
             startActivity(intent);
         });

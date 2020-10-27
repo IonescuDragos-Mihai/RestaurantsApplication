@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getRestaurantsDetail() {
         ServerProvider.createRestaurantService().getRestaurantDetail().enqueue(new Callback<ArrayList<RestaurantDetail>>() {
+            @SuppressWarnings("NullableProblems")
             @Override
             public void onResponse(Call<ArrayList<RestaurantDetail>> call, Response<ArrayList<RestaurantDetail>> response) {
                 if (response.body() != null) {
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+            @SuppressWarnings("NullableProblems")
             @Override
             public void onFailure(Call<ArrayList<RestaurantDetail>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), R.string.message_failed_load_data, Toast.LENGTH_LONG).show();

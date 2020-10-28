@@ -20,8 +20,8 @@ import dmi.ase.restaurantsapplication.restaurants.server.model.RestaurantPhoto;
 
 public class ImageRestaurantAdapter extends RecyclerView.Adapter<ImageRestaurantAdapter.ImageViewHolder> {
 
-    private ArrayList<RestaurantPhoto> listURLImage;
-    private Context context;
+    private final ArrayList<RestaurantPhoto> listURLImage;
+    private final Context context;
 
     public ImageRestaurantAdapter(ArrayList<RestaurantPhoto> mockItems, Context baseContext) {
        this.listURLImage=mockItems;
@@ -50,7 +50,7 @@ public class ImageRestaurantAdapter extends RecyclerView.Adapter<ImageRestaurant
     }
 
     static class ImageViewHolder extends RecyclerView.ViewHolder {
-        private AppCompatImageView imageRestaurant;
+        private final AppCompatImageView imageRestaurant;
 
 
         public ImageViewHolder(@NonNull View itemView) {

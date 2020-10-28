@@ -19,8 +19,8 @@ import dmi.ase.restaurantsapplication.restaurants.model.ItemRestaurant;
 
 public class ItemRestaurantAdapter extends  RecyclerView.Adapter<ItemRestaurantAdapter.ItemViewHolder>{
 
-    private ArrayList<ItemRestaurant> items;
-    private Context context;
+    private final ArrayList<ItemRestaurant> items;
+    private final Context context;
     private OnItemClickListener listener;
 
     public ItemRestaurantAdapter(ArrayList<ItemRestaurant> items, Context baseContext) {
@@ -51,9 +51,9 @@ public class ItemRestaurantAdapter extends  RecyclerView.Adapter<ItemRestaurantA
     }
 
     static class ItemViewHolder extends RecyclerView.ViewHolder{
-        private AppCompatImageView image;
-        private AppCompatTextView title;
-        private AppCompatTextView subtitle;
+        private final AppCompatImageView image;
+        private final AppCompatTextView title;
+        private final AppCompatTextView subtitle;
 
         public ItemViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
@@ -64,7 +64,7 @@ public class ItemRestaurantAdapter extends  RecyclerView.Adapter<ItemRestaurantA
             itemView.setOnClickListener(view -> {
                     if(listener!=null){
                         int position=getAdapterPosition();
-                        if(position!= RecyclerView.NO_POSITION);{
+                        if(position!= RecyclerView.NO_POSITION){
                             listener.onItemClickListener(position);
                         }
                     }

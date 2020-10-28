@@ -1,19 +1,20 @@
 package dmi.ase.restaurantsapplication.restaurants.utils;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.HashSet;
-import java.util.Set;
+
 
 public class SharePrefUtil {
     private static final String NAME_FILE="Favorites";
     private static final boolean defaultValue=false;
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+    private final SharedPreferences sharedPreferences;
+    private final SharedPreferences.Editor editor;
 
+    @SuppressLint("CommitPrefEdits")
     public SharePrefUtil(Context context) {
         this.sharedPreferences = context.getSharedPreferences(NAME_FILE, Activity.MODE_PRIVATE);
         this.editor =sharedPreferences.edit();

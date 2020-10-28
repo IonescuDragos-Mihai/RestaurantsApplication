@@ -6,27 +6,18 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.Visibility;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-
 import dmi.ase.restaurantsapplication.R;
 import dmi.ase.restaurantsapplication.restaurants.adapters.ImageRestaurantAdapter;
 import dmi.ase.restaurantsapplication.restaurants.server.model.RestaurantDetail;
@@ -36,24 +27,17 @@ import dmi.ase.restaurantsapplication.restaurants.utils.SharePrefUtil;
 public class RestaurantDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
 
-    public static final String SAVE_FAV = "isFav";
+
     private AppCompatTextView titleRestaurant;
-    private RecyclerView recyclerViewPhoto;
-    private ImageRestaurantAdapter adapter;
     private AppCompatTextView details;
-    private Intent intent;
     private Toolbar toolbarRestaurantDetail;
     private MapView mapViewRestaurantDetail;
     private RestaurantDetail restaurant;
 
-
-    private ArrayList<RestaurantPhoto> photoOfRestaurants = new ArrayList<>();
-
-
-    private boolean isFavorite ;
+    private final ArrayList<RestaurantPhoto> photoOfRestaurants = new ArrayList<>();
 
     private SharePrefUtil sharePrefUtil;
-    private String favRestaurant;
+    private boolean isFavorite;
 
 
     @Override
@@ -68,7 +52,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
 
         titleRestaurant = findViewById(R.id.title_restaurant_details);
         details = findViewById(R.id.restaurant_details);
-        recyclerViewPhoto = findViewById(R.id.recycler_view_photo);
+        RecyclerView recyclerViewPhoto = findViewById(R.id.recycler_view_photo);
 
         mapViewRestaurantDetail = findViewById(R.id.map_view_restaurant_details);
 
@@ -87,7 +71,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
 
         recyclerViewPhoto.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         recyclerViewPhoto.setHasFixedSize(true);
-        adapter = new ImageRestaurantAdapter(photoOfRestaurants, getApplicationContext());
+        ImageRestaurantAdapter adapter = new ImageRestaurantAdapter(photoOfRestaurants, getApplicationContext());
         recyclerViewPhoto.setAdapter(adapter);
 
 
@@ -105,7 +89,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity implements OnMa
     }
 
     private RestaurantDetail getRestaurantDetailFromMainActivity() {
-        intent = getIntent();
+        Intent intent = getIntent();
         return (RestaurantDetail) intent.getSerializableExtra(MainActivity.KEY_PARSE_RESTAURANT);
     }
 

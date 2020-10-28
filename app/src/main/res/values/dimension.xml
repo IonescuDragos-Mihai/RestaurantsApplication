@@ -13,7 +13,7 @@
     <dimen name="max_width_card_view">98dp</dimen>
     <dimen name="dimendion_0.5dp">0.5dp</dimen>
     <dimen name="dimension_0dp">0dp</dimen>
-    <dimen name="dimension_logo_weight">85dp</dimen>
-    <dimen name="dimension_logo_height">60dp</dimen>
+    <dimen name="dimension_logo_weight">70dp</dimen>
+    <dimen name="dimension_logo_height">45dp</dimen>
 
 </resources>
